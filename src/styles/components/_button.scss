@@ -1,0 +1,20 @@
+@use '../tokens' as *;
+
+.btn {
+  padding: 10px 20px;
+  background-color: $white;
+  border-radius: $size-1;
+  border: 2px solid $black;
+  color: $on-primary;
+  font-weight: $bold;
+  font-family: $inter;
+  font-size: $label-large;
+
+  &:hover {
+    background-color: $surface;
+  }
+
+  &--active {
+    background-color: $primary;
+  }
+}

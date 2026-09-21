@@ -1,0 +1,47 @@
+@use '../../styles/tokens.scss' as *;
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  padding: $size-14 $size-15;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: $size-3;
+    padding: $size-6;
+    background-color: $bg;
+    border-radius: $size-3;
+  }
+
+  &__title {
+    font-family: $inter;
+    font-size: $size-7;
+    font-weight: $bold;
+    color: $on-primary;
+  }
+
+  &__description {
+    font-family: $inter;
+    font-size: 18px;
+    font-weight: $medium;
+    color: $on-bg;
+    margin-right: $size-5;
+  }
+
+  &__btn {
+    background-color: $primary;
+    padding: $size-2 $size-3;
+    border-radius: $size-1;
+    color: $on-primary;
+    font-family: $inter;
+    font-size: 18px;
+    font-weight: $bold;
+  }
+}

@@ -1,0 +1,57 @@
+@use '../../styles/tokens.scss' as *;
+@use '../../styles//components//button.scss';
+
+.header {
+  width: 100%;
+  background-color: $bg;
+  border-bottom: 2px solid $on-primary;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size-3 0;
+  }
+}
+
+.icon {
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: $size-5;
+    flex: 1;
+  }
+}
+
+.navigation {
+  gap: $size-4;
+}
+ul {
+  gap: $size-5;
+
+  & li > a {
+    font-size: $size-2;
+    color: $on-bg;
+    font-family: $inter;
+    font-weight: $medium;
+
+    &:active {
+      color: $on-primary;
+      font-weight: $bold;
+    }
+  }
+}
+
+.auth-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $size-2;
+}
