@@ -12,14 +12,13 @@ export function TableSection(): HTMLElement {
   ];
   const tableSectionElement = document.createElement('section');
   tableSectionElement.className = 'table-section';
-  const containerElement = document.createElement('div');
-  containerElement.className = 'container';
+  const container = document.createElement('div');
+  container.className = 'container';
 
   const tableElement = document.createElement('table');
   tableElement.className = 'table';
   const tHeadElement = document.createElement('thead');
   tHeadElement.className = 'table__head';
-  const tBodyElement = document.createElement('tbody');
 
   const trElement = document.createElement('tr');
   tableHeaders.map((t) => {
@@ -30,23 +29,13 @@ export function TableSection(): HTMLElement {
   });
   tHeadElement.appendChild(trElement);
 
-  const res = players.map((player) => {
-    const trBodyElement = document.createElement('tr');
-    const tdElement = document.createElement('td');
-    tdElement.textContent = player.name;
-
-    return trBodyElement.appendChild(tdElement);
-  });
-  console.log(res);
-
-  res.map((r) => tBodyElement.appendChild(r));
-
   tableElement.appendChild(tHeadElement);
-  tableElement.appendChild(tBodyElement);
+  tableElement.appendChild(TableBody());
 
-  tableSectionElement.appendChild(Title('Top Players This Week'));
-  containerElement.appendChild(tableElement);
-  tableSectionElement.appendChild(tableElement);
+  container.appendChild(Title('Top Players This Week'));
+  container.appendChild(tableElement);
+  container.appendChild(tableElement);
+  tableSectionElement.appendChild(container);
   return tableSectionElement;
 }
 
@@ -112,3 +101,33 @@ const players: Player[] = [
     favoriteGame: 'Cat Chess',
   },
 ];
+
+function TableBody(): HTMLElement {
+  const tBody = document.createElement('tbody');
+  tBody.className = 'table__body';
+  players.forEach((player) => {
+    const tr = TableRow(player);
+    tBody.appendChild(tr);
+  });
+
+  return tBody;
+}
+
+function TableRow(player: Player): HTMLElement {
+  const tr = document.createElement('tr');
+  tr.className = 'tr';
+  tr.appendChild(TableCell(`#${player.rank}`));
+  tr.appendChild(TableCell(player.name));
+  tr.appendChild(TableCell(String(player.gamesPlayed)));
+  tr.appendChild(TableCell(String(player.totalScore)));
+  tr.appendChild(TableCell(String(player.streakDays)));
+  tr.appendChild(TableCell(player.favoriteGame));
+
+  return tr;
+}
+
+function TableCell(value: string): HTMLElement {
+  const td = document.createElement('td');
+  td.textContent = value;
+  return td;
+}

@@ -1,17 +1,22 @@
 @use '../../styles/tokens.scss' as *;
 
 .table-section {
-  padding: 0 $size-15;
+  padding: $size-5 0;
 }
 
 .table {
   width: 100%;
   border-radius: $size-2;
-  overflow: hidden;
+  border: 2.5px solid $on-primary;
+  box-shadow: 4px 4px 0 0 $on-primary;
 
   &__head {
     padding: $size-3;
     background-color: $tertiary;
+
+    & > tr {
+      border-radius: 16px;
+    }
 
     & > tr > th {
       padding: $size-3;
@@ -20,6 +25,21 @@
       font-weight: $extra-bold;
       color: $white;
       text-transform: uppercase;
+    }
+  }
+
+  &__body {
+    & > tr > td {
+      padding: $size-3;
+      font-size: $size-2;
+      font-family: $roboto;
+      font-weight: $bold;
+      text-align: center;
+      color: $on-primary;
+    }
+
+    & > tr:nth-child(odd) {
+      background-color: $bg;
     }
   }
 }
