@@ -1,5 +1,5 @@
 import { Title } from '../title/title';
-import './table-section.scss';
+import './leaderboard.scss';
 
 interface Player {
   rank: number;
