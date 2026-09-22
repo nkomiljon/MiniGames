@@ -50,8 +50,19 @@
       color: $on-primary;
     }
 
+    & > tr > td.yellow {
+      color: $primary;
+    }
+
     & > tr:nth-child(odd) {
       background-color: $bg;
     }
   }
+}
+
+.chips {
+  padding: $size-05 $size-2;
+  background-color: $white;
+  border: 1.5px solid $on-primary;
+  border-radius: 20px;
 }

@@ -126,18 +126,57 @@ function TableBody(): HTMLElement {
 function TableRow(player: Player): HTMLElement {
   const tr = document.createElement('tr');
   tr.className = 'tr';
-  tr.appendChild(TableCell(`#${player.rank}`));
-  tr.appendChild(TableCell(player.name));
-  tr.appendChild(TableCell(String(player.gamesPlayed)));
-  tr.appendChild(TableCell(String(player.totalScore)));
-  tr.appendChild(TableCell(String(player.streakDays)));
-  tr.appendChild(TableCell(player.favoriteGame));
+  tr.appendChild(rankCell(player.rank));
+  tr.appendChild(playerNameCell(player.name));
+  tr.appendChild(gamesCountCell(player.gamesPlayed));
+  tr.appendChild(totalScoreCell(player.totalScore));
+  tr.appendChild(streakDaysCell(player.streakDays));
+  tr.appendChild(favoriteGameCell(player.favoriteGame));
 
   return tr;
 }
 
-function TableCell(value: string): HTMLElement {
+function rankCell(rank: number) {
   const td = document.createElement('td');
-  td.textContent = value;
+  td.textContent = `#${rank}`;
+  if (rank === 1) td.classList.add('yellow');
+  return td;
+}
+
+function playerNameCell(name: string) {
+  const td = document.createElement('td');
+  const playerIcon = document.createElement('span');
+  playerIcon.className = '';
+  playerIcon.textContent = name;
+  td.appendChild(playerIcon);
+  return td;
+}
+
+function gamesCountCell(count: number) {
+  const td = document.createElement('td');
+  td.textContent = `${count}`;
+  return td;
+}
+
+function totalScoreCell(score: number) {
+  const td = document.createElement('td');
+  td.textContent = score.toLocaleString();
+  return td;
+}
+
+function streakDaysCell(streak: number) {
+  const td = document.createElement('td');
+  td.textContent = `🔥 ${streak} days`;
+  return td;
+}
+
+function favoriteGameCell(value: string): HTMLElement {
+  const td = document.createElement('td');
+
+  const chips = document.createElement('span');
+  chips.className = 'chips';
+  chips.textContent = value;
+
+  td.appendChild(chips);
   return td;
 }
