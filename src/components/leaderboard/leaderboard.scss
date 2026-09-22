@@ -1,14 +1,26 @@
 @use '../../styles/tokens.scss' as *;
 
-.table-section {
+.leaderboard {
   padding: $size-5 0;
+
+  &__meta {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $size-5;
+  }
+
+  &__wrapper {
+    border-radius: $size-2;
+    border: 2.5px solid $on-primary;
+    box-shadow: 4px 4px 0 0 $on-primary;
+    overflow: hidden;
+  }
 }
 
 .table {
   width: 100%;
-  border-radius: $size-2;
-  border: 2.5px solid $on-primary;
-  box-shadow: 4px 4px 0 0 $on-primary;
+  border-collapse: separate;
+  border-spacing: 0;
 
   &__head {
     padding: $size-3;

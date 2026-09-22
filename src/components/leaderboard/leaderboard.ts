@@ -1,44 +1,6 @@
 import { Title } from '../title/title';
 import './table-section.scss';
 
-export function TableSection(): HTMLElement {
-  const tableHeaders: string[] = [
-    'Rank',
-    'Player',
-    'Games Played',
-    'Total Score',
-    'Streak',
-    'Favorite Game',
-  ];
-  const tableSectionElement = document.createElement('section');
-  tableSectionElement.className = 'table-section';
-  const container = document.createElement('div');
-  container.className = 'container';
-
-  const tableElement = document.createElement('table');
-  tableElement.className = 'table';
-  const tHeadElement = document.createElement('thead');
-  tHeadElement.className = 'table__head';
-
-  const trElement = document.createElement('tr');
-  tableHeaders.map((t) => {
-    const thElement = document.createElement('th');
-    thElement.scope = 'col';
-    thElement.textContent = t;
-    trElement.appendChild(thElement);
-  });
-  tHeadElement.appendChild(trElement);
-
-  tableElement.appendChild(tHeadElement);
-  tableElement.appendChild(TableBody());
-
-  container.appendChild(Title('Top Players This Week'));
-  container.appendChild(tableElement);
-  container.appendChild(tableElement);
-  tableSectionElement.appendChild(container);
-  return tableSectionElement;
-}
-
 interface Player {
   rank: number;
   avatarInitials: string;
@@ -101,6 +63,54 @@ const players: Player[] = [
     favoriteGame: 'Cat Chess',
   },
 ];
+
+export function Leaderboard(): HTMLElement {
+  const tableHeaders: string[] = [
+    'Rank',
+    'Player',
+    'Games Played',
+    'Total Score',
+    'Streak',
+    'Favorite Game',
+  ];
+  const leaderboard = document.createElement('section');
+  leaderboard.className = 'leaderboard';
+
+  const container = document.createElement('div');
+  container.className = 'container';
+
+  const leaderboardMeta = document.createElement('div');
+  leaderboardMeta.className = 'leaderboard__meta';
+
+  const leaderboardWrapper = document.createElement('div');
+  leaderboardWrapper.className = 'leaderboard__wrapper';
+
+  const leaderboardTable = document.createElement('table');
+  leaderboardTable.className = 'table';
+  const tHeadElement = document.createElement('thead');
+  tHeadElement.className = 'table__head';
+
+  const trElement = document.createElement('tr');
+  tableHeaders.map((t) => {
+    const thElement = document.createElement('th');
+    thElement.scope = 'col';
+    thElement.textContent = t;
+    trElement.appendChild(thElement);
+  });
+  tHeadElement.appendChild(trElement);
+
+  leaderboardTable.appendChild(tHeadElement);
+  leaderboardTable.appendChild(TableBody());
+
+  leaderboardMeta.appendChild(Title('Top Players This Week'));
+  leaderboardWrapper.appendChild(leaderboardTable);
+
+  container.appendChild(leaderboardMeta);
+  container.appendChild(leaderboardWrapper);
+
+  leaderboard.appendChild(container);
+  return leaderboard;
+}
 
 function TableBody(): HTMLElement {
   const tBody = document.createElement('tbody');
