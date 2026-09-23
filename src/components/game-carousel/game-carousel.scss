@@ -20,4 +20,13 @@
 .control-area {
   display: flex;
   flex-direction: row;
+  gap: $size-2;
+
+  &__btn {
+    width: $size-6;
+    height: $size-6;
+    border-radius: $corner-full;
+    background-color: $white;
+    border: 2px solid $on-primary;
+  }
 }

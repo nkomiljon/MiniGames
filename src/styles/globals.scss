@@ -33,6 +33,12 @@ a {
   cursor: pointer;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -44,10 +50,3 @@ table {
   padding: 0 10px;
   margin: 0 auto;
 }
-
-// .title {
-//   font-family: $inter;
-//   font-weight: $bold;
-//   font-size: $size-4;
-//   color: $on-primary;
-// }
