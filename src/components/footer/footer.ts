@@ -53,7 +53,8 @@ function FooterBottom(): HTMLElement {
 
   const schoolLink = document.createElement('a');
   schoolLink.className = 'footer-bottom__rslink';
-  schoolLink.href = '/';
+  schoolLink.href = 'https://app.rs.school';
+  schoolLink.target = '_blank';
   const schoolLinkWrapper = document.createElement('div');
   schoolLinkWrapper.className = 'footer-bottom__rslink-wrapper';
   const schoolLinkIcon = document.createElement('img');
@@ -69,7 +70,9 @@ function FooterBottom(): HTMLElement {
 
   const githubLink = document.createElement('a');
   githubLink.className = 'footer-bottom__github-link';
-  githubLink.href = '/';
+  githubLink.href = 'https://github.com/nkomiljon';
+  githubLink.target = '_blank';
+
   const githubIconWrapper = document.createElement('div');
   githubIconWrapper.className = 'footer-bottom__github-wrapper';
   const githubIcon = document.createElement('img');
@@ -77,7 +80,7 @@ function FooterBottom(): HTMLElement {
   githubIcon.alt = 'github-icon';
   const githubNickname = document.createElement('span');
   githubNickname.className = 'footer-bottom__github-nickname';
-  githubNickname.textContent = '@student-nickname';
+  githubNickname.textContent = '@nkomiljon';
 
   githubIconWrapper.appendChild(githubIcon);
   githubLink.appendChild(githubIconWrapper);

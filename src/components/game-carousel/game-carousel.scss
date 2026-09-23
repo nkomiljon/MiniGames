@@ -16,3 +16,8 @@
     margin-bottom: $size-5;
   }
 }
+
+.control-area {
+  display: flex;
+  flex-direction: row;
+}
