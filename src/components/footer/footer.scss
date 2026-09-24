@@ -1,0 +1,99 @@
+@use '../../styles/tokens.scss' as *;
+
+.footer {
+  padding: $size-5 0;
+  background-color: $bg-footer;
+
+  &-top,
+  &-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: $inter;
+  }
+  &-top {
+    &__brand {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      gap: $size-3;
+    }
+
+    &__description {
+      font-size: $body-small;
+      font-weight: $regular;
+      color: $on-bg-footer;
+      line-height: 150%;
+    }
+
+    &__menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $size-10;
+    }
+  }
+
+  &-bottom {
+    padding-top: $size-3;
+    margin-top: $size-8;
+    border-top: 1px solid $bg-footer-low;
+    align-items: end;
+
+    &__info,
+    &__love-text {
+      font-family: $inter;
+      font-weight: $regular;
+      font-size: $body-small;
+      color: $on-bg-footer;
+    }
+
+    &__rslink {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+
+      &-wrapper {
+        width: $size-3;
+        height: $size-3;
+        padding: 3px 6px;
+        margin-right: $size-1;
+        background-color: $on-primary;
+        border-radius: $corner-full;
+      }
+
+      &-name {
+        font-family: $inter;
+        font-size: $body-small;
+        font-weight: $regular;
+        color: $on-bg-footer;
+      }
+    }
+
+    &__github {
+      &-link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &-wrapper {
+        width: $size-3;
+        height: $size-3;
+        padding: 1px 6px;
+        margin-right: $size-1;
+        background-color: $white;
+        border-radius: $corner-full;
+      }
+
+      &-nickname {
+        font-family: $inter;
+        font-size: $label-large;
+        font-weight: $regular;
+        color: $on-bg-footer;
+      }
+    }
+  }
+}

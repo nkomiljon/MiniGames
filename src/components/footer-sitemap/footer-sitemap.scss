@@ -1,0 +1,28 @@
+@use '../../styles/tokens.scss' as *;
+
+.footer-sitemap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: $size-10;
+
+  &__title {
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $label-extra-large;
+    color: $white;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: $size-2;
+
+    & > li > a {
+      font-family: $inter;
+      font-weight: $regular;
+      font-size: $body-small;
+      color: $on-bg-footer;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use '../../styles/tokens.scss' as *;
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $size-1;
+
+  &__title {
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $headline-medium;
+    color: $on-primary;
+  }
+}
+
+.light {
+  color: $white;
+}

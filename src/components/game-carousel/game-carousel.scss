@@ -1,0 +1,32 @@
+@use '../../styles/tokens.scss' as *;
+
+.game-carousel {
+  padding: $size-5 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $size-5;
+  }
+}
+
+.control-area {
+  display: flex;
+  flex-direction: row;
+  gap: $size-2;
+
+  &__btn {
+    width: $size-6;
+    height: $size-6;
+    border-radius: $corner-full;
+    background-color: $white;
+    border: 2px solid $on-primary;
+  }
+}

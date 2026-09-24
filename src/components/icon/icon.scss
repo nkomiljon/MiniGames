@@ -1,0 +1,10 @@
+@use '../../styles/tokens.scss' as *;
+
+.icon-link {
+  width: $size-5;
+  height: $size-5;
+  padding: 12px;
+  display: flex;
+  background-color: $bg-footer-low;
+  border-radius: $corner-full;
+}
