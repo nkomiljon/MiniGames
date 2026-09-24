@@ -127,7 +127,7 @@ function TableRow(player: Player): HTMLElement {
   const tr = document.createElement('tr');
   tr.className = 'tr';
   tr.appendChild(rankCell(player.rank));
-  tr.appendChild(playerNameCell(player.name));
+  tr.appendChild(playerNameCell(player.name, player.rank));
   tr.appendChild(gamesCountCell(player.gamesPlayed));
   tr.appendChild(totalScoreCell(player.totalScore));
   tr.appendChild(streakDaysCell(player.streakDays));
@@ -139,16 +139,29 @@ function TableRow(player: Player): HTMLElement {
 function rankCell(rank: number) {
   const td = document.createElement('td');
   td.textContent = `#${rank}`;
-  if (rank === 1) td.classList.add('yellow');
+  if (rank === 1) td.classList.add('active');
   return td;
 }
 
-function playerNameCell(name: string) {
+function playerNameCell(name: string, i: number) {
+  const colors: string[] = ['yellow', 'green', 'cyan', 'pink', 'purple'];
+
   const td = document.createElement('td');
-  const playerIcon = document.createElement('span');
-  playerIcon.className = '';
-  playerIcon.textContent = name;
-  td.appendChild(playerIcon);
+  const playerNameWrapper = document.createElement('div');
+  playerNameWrapper.className = 'cell-wrapper';
+
+  const avatar = document.createElement('span');
+  avatar.className = 'avatar' + ' ' + colors[i - 1];
+  const value = name.match(/[A-Z]/g)?.join('');
+  avatar.textContent = value || '';
+
+  const userName = document.createElement('span');
+  userName.textContent = name;
+
+  playerNameWrapper.appendChild(avatar);
+  playerNameWrapper.appendChild(userName);
+
+  td.appendChild(playerNameWrapper);
   return td;
 }
 

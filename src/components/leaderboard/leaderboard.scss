@@ -50,7 +50,7 @@
       color: $on-primary;
     }
 
-    & > tr > td.yellow {
+    & > tr > td.active {
       color: $primary;
     }
 
@@ -60,9 +60,51 @@
   }
 }
 
+.cell-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $label-medium;
+}
+
+.avatar {
+  width: $size-5;
+  height: $size-5;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $label-medium;
+  border: 1.5px solid $on-primary;
+  border-radius: $headline-small;
+  font-family: $roboto;
+  font-size: $body-small;
+  font-weight: $bold;
+  color: $on-primary;
+}
+
 .chips {
   padding: $size-05 $size-2;
   background-color: $white;
   border: 1.5px solid $on-primary;
   border-radius: 20px;
+}
+
+.yellow {
+  background-color: $primary;
+}
+
+.green {
+  background-color: $avatar-random-2;
+}
+
+.cyan {
+  background-color: $avatar-random-3;
+}
+
+.pink {
+  background-color: $avatar-random-4;
+}
+
+.purple {
+  background-color: $avatar-random-5;
 }
