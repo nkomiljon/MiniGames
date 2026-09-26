@@ -1,16 +1,15 @@
 import '../styles/globals.scss';
-
+import { createBrowserRouter } from './router';
+import { HomePage } from '../pages/home/home-page';
+import { GameLibrary } from '../pages/game-library/game-library';
 import { Header } from '../components/header/header';
-import { HeroSection } from '../components/hero-section/hero-section';
-import { Leaderboard } from '../components/leaderboard/leaderboard';
-import { DeveloperCta } from '../components/developer-cta/developer-cta';
 import { Footer } from '../components/footer/footer';
-import { GameCarousel } from '../components/game-carousel/game-carousel';
+import { Outlet } from '../components/outlet/outlet';
 
-const rootEl = document.querySelector<HTMLDivElement>('#app');
-rootEl?.appendChild(Header());
-rootEl?.appendChild(HeroSection());
-rootEl?.appendChild(GameCarousel());
-rootEl?.appendChild(Leaderboard());
-rootEl?.appendChild(DeveloperCta());
-rootEl?.appendChild(Footer());
+const rootEl = document.querySelector<HTMLDivElement>('#app')!;
+rootEl.append(Header(), Outlet(), Footer());
+
+createBrowserRouter([
+  { path: '/', component: HomePage() },
+  { path: '/games-library', component: GameLibrary() },
+]);

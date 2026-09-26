@@ -42,7 +42,7 @@ ul {
     font-family: $inter;
     font-weight: $medium;
 
-    &:active {
+    &[aria-current='page'] {
       color: $on-primary;
       font-weight: $bold;
     }

@@ -2,9 +2,30 @@ import './header.scss';
 import logo from '../../assets/icons/Logo.png';
 import { Logo } from '../logo/logo';
 
-export function Header(): HTMLElement {
-  const menu: string[] = ['Home', 'Library', 'Tournaments', 'Community'];
+interface Link {
+  path: string;
+  label: string;
+}
+const menu: Link[] = [
+  {
+    path: '',
+    label: 'Home',
+  },
+  {
+    path: 'games-library',
+    label: 'Library',
+  },
+  {
+    path: 'games-tournamemts',
+    label: 'Tournaments',
+  },
+  {
+    path: 'games-community',
+    label: 'Community',
+  },
+];
 
+export function Header(): HTMLElement {
   const headerElement = document.createElement('header');
   headerElement.classList.add('header');
 
@@ -22,8 +43,8 @@ export function Header(): HTMLElement {
   menu.map((m) => {
     const liElement = document.createElement('li');
     const aElement = document.createElement('a');
-    aElement.text = m;
-    aElement.href = `/${m}`;
+    aElement.text = m.label;
+    aElement.href = `#/${m.path}`;
     liElement.appendChild(aElement);
     ulElement.appendChild(liElement);
   });
