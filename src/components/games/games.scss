@@ -1,0 +1,123 @@
+@use '../../styles/tokens.scss' as *;
+@use '../../styles/components/card' as *;
+
+.games {
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $size-3;
+  }
+}
+
+.card {
+  max-width: 828px;
+  background-color: $white;
+  color: $on-primary;
+  border-radius: $size-2;
+  overflow: hidden;
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  &__img {
+    width: 320px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    padding: $size-2;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $size-2;
+  align-items: stretch;
+
+  &__header,
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $inter;
+    font-size: $headline-medium;
+    font-weight: $bold;
+    color: $on-primary;
+  }
+
+  &__description {
+    font-family: $inter;
+    font-size: $body-medium;
+    font-weight: $medium;
+    color: $on-bg;
+  }
+}
+
+.tag {
+  background-color: $secondary;
+  padding: $size-05 $size-1;
+  margin: auto 0 auto $size-2;
+  border-radius: $size-3;
+  border: 1.5px solid $on-primary;
+  font-family: $inter;
+  font-weight: $bold;
+  font-size: $label-medium;
+  color: $on-primary;
+}
+
+.price {
+  margin-left: auto;
+  font-family: $inter;
+  font-weight: $bold;
+  font-size: $headline-medium;
+  color: $on-primary;
+
+  &--free {
+    color: $price-free;
+  }
+}
+
+.game-rating,
+.game-likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $size-05;
+  font-family: $inter;
+  font-weight: $bold;
+  font-size: $body-small;
+  color: $on-primary;
+}
+.game-rating {
+  margin-right: $size-3;
+}
+
+.details-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $primary;
+  border: 2px solid $on-primary;
+  padding: 10px 20px;
+  margin-left: auto;
+  border-radius: $size-1;
+  font-family: $inter;
+  font-weight: $bold;
+  font-size: $body-small;
+  color: $on-primary;
+}

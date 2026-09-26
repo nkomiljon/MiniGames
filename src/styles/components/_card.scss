@@ -1,0 +1,6 @@
+@use '../tokens.scss' as *;
+
+.skin {
+  border: 2.5px solid $on-primary;
+  box-shadow: $size-05 $size-05 0 0 $on-primary;
+}

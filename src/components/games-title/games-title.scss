@@ -1,0 +1,20 @@
+@use '../../styles/tokens.scss' as *;
+
+.games__info {
+  padding: $size-5 0;
+}
+
+.games__title {
+  margin-bottom: $size-1;
+  font-family: $inter;
+  font-size: $display-large;
+  font-weight: $bold;
+  color: $on-primary;
+}
+
+.games__description {
+  font-family: $inter;
+  font-size: $body-large;
+  font-weight: $medium;
+  color: $on-bg;
+}

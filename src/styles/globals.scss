@@ -1,12 +1,9 @@
+@use './tokens.scss' as *;
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-}
-
-body {
-  padding: 0;
-  margin: 0;
 }
 
 ul,
@@ -42,6 +39,12 @@ button {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $bg;
 }
 
 .container {
