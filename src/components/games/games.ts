@@ -6,96 +6,186 @@ import Img6 from '../../assets/images/img-6.png';
 import Img7 from '../../assets/images/img-7.png';
 import Img8 from '../../assets/images/img-8.png';
 
-import ratingIcon from '../../assets/icons/star.png';
-import likesIcon from '../../assets/icons/favorite.png';
 import { GamesFilter } from '../games-filter/games-filter';
 import { GamesTitle } from '../games-title/games-title';
 import { GamesPagination } from '../games-pagination/games-pagination';
+import { DialogContent } from '../dialog-content/dialog-content';
+import { createDialog } from '../../utils/create-dialog';
+import { Game } from '../../interfaces/game.interface';
+import { Rating } from '../rating/rating';
+import { Like } from '../like/like';
 
-interface GameInfo {
-  image: string;
-  title: string;
-  description: string;
-  gener: string;
-  price: string;
-  meta: {
-    rating: string;
-    likes: string;
-  };
-}
-
-const data: GameInfo[] = [
+const data: Game[] = [
   {
     image: Img3,
     title: 'Vacation Cafe Simulator',
     description:
       'Cozy Italian Vacation Cafe 🏖️ No timers, No stress 😌 cook traditional dishes 🍝 upgrade and customize 🏠 just drink Prosecco 🥂 relax and grow your dream cafe ✨',
-    gener: 'Strategy',
+    category: 'Strategy',
     price: 'Free',
+    playersType: 'Solo',
+    duration: '40-90min',
     meta: {
-      rating: '4.8',
-      likes: '28.7K',
+      rating: 4.8,
+      likes: 28.7,
     },
+    recorders: [
+      {
+        id: 1,
+        name: 'ForestSpirit',
+        point: 1000,
+        history: '1 days',
+      },
+      {
+        id: 2,
+        name: 'TeaBrewer',
+        point: 1000,
+        history: '5 days',
+      },
+      {
+        id: 3,
+        name: 'HerbalistPath',
+        point: 1000,
+        history: '1 week',
+      },
+    ],
+    comments: [
+      {
+        meta: {
+          author: 'ForestDweller',
+          date: '3 hours ago',
+        },
+        body: "The hand-drawn art is absolutely magical 🍄 Every location feels like a page from a children's storybook. The mushroom village made me cry happy tears!",
+        likes: 12,
+      },
+    ],
   },
   {
     image: Img4,
     title: 'Winter Burrow',
     description:
       'A cozy woodland survival game about a mouse restoring their childhood burrow. Explore, gather resources, craft, knit warm sweaters, bake pies and meet the locals.',
-    gener: 'Farm',
+    category: 'Farm',
     price: 'Free',
+    playersType: 'Solo',
+    duration: '',
     meta: {
-      rating: '4.9',
-      likes: '32.4K',
+      rating: 4.9,
+      likes: 32.4,
     },
+    recorders: [
+      {
+        id: 1,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+      {
+        id: 2,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+      {
+        id: 3,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+    ],
+    comments: [],
   },
   {
     image: Img5,
     title: 'Shelve the Potions!',
     description:
       "Organize 2000+ potions on shelves after the witch's cats have knocked them over, using clues around an enchanted cellar. Learn strange symbols and decipher cryptic notes",
-    gener: 'Puzzle',
+    category: 'Puzzle',
     price: 'Free',
+    playersType: 'Solo',
+    duration: '',
     meta: {
-      rating: '4.7',
-      likes: '23.1K',
+      rating: 4.7,
+      likes: 23.1,
     },
+    recorders: [
+      {
+        id: 1,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+    ],
+    comments: [],
   },
   {
     image: Img8,
     title: 'Shelve the Potions!',
     description:
       "Organize 2000+ potions on shelves after the witch's cats have knocked them over, using clues around an enchanted cellar. Learn strange symbols and decipher cryptic notes",
-    gener: 'Puzzle',
+    category: 'Puzzle',
     price: '$1.99',
+    playersType: 'Solo',
+    duration: '',
     meta: {
-      rating: '4.7',
-      likes: '23.1K',
+      rating: 4.7,
+      likes: 23.1,
     },
+    recorders: [
+      {
+        id: 1,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+    ],
+    comments: [],
   },
   {
     image: Img6,
     title: 'Shelve the Potions!',
     description:
       "Organize 2000+ potions on shelves after the witch's cats have knocked them over, using clues around an enchanted cellar. Learn strange symbols and decipher cryptic notes",
-    gener: 'Puzzle',
+    category: 'Puzzle',
     price: 'Free',
+    playersType: 'Solo',
+    duration: '',
     meta: {
-      rating: '4.7',
-      likes: '23.1K',
+      rating: 4.7,
+      likes: 23.1,
     },
+    recorders: [
+      {
+        id: 1,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+    ],
+    comments: [],
   },
   {
     image: Img7,
     title: 'Shelve the Potions!',
     description:
       "Organize 2000+ potions on shelves after the witch's cats have knocked them over, using clues around an enchanted cellar. Learn strange symbols and decipher cryptic notes",
-    gener: 'Puzzle',
+    category: 'Puzzle',
     price: 'Free',
+    playersType: 'Solo',
+    duration: '',
     meta: {
-      rating: '4.7',
-      likes: '23.1K',
+      rating: 4.7,
+      likes: 23.1,
     },
+    recorders: [
+      {
+        id: 1,
+        name: '',
+        point: 1000,
+        history: '2 day',
+      },
+    ],
+    comments: [],
   },
 ];
 
@@ -107,13 +197,11 @@ export function Games() {
   container.className = 'container';
 
   const gamesWrapper = document.createElement('div');
-  gamesWrapper.className = 'games-wrapper';
+  gamesWrapper.className = 'library-grid';
 
   container.appendChild(GamesTitle());
   container.appendChild(GamesFilter());
-  data.forEach((d) => {
-    gamesWrapper.appendChild(GameCard(d));
-  });
+  data.forEach((d) => gamesWrapper.appendChild(GameCard(d)));
   container.appendChild(gamesWrapper);
   container.appendChild(GamesPagination());
   games.appendChild(container);
@@ -121,49 +209,47 @@ export function Games() {
   return games;
 }
 
-function GameCard(game: GameInfo): HTMLElement {
+function GameCard(game: Game): HTMLElement {
   const card = document.createElement('div');
   card.className = 'card skin';
-  const cardWrapper = document.createElement('div');
-  cardWrapper.className = 'card__wrapper';
-
-  const cardImg = document.createElement('img');
-  cardImg.src = game.image;
-  cardImg.alt = game.title;
-  cardImg.className = 'card__img';
-
-  cardWrapper.appendChild(cardImg);
-  cardWrapper.appendChild(
-    CardContent(game.title, game.gener, game.price, game.description, game.meta),
-  );
-
-  card.appendChild(cardWrapper);
+  card.appendChild(CardWrapper(game));
   return card;
 }
 
-function CardContent(
-  title: string,
-  tag: string,
-  price: string,
-  description: string,
-  meta: {
-    rating: string;
-    likes: string;
-  },
-): HTMLElement {
+function CardWrapper(game: Game): HTMLElement {
+  const cardWraper = document.createElement('div');
+  cardWraper.className = 'card__wrapper';
+
+  cardWraper.append(CardImage(game.image, game.title), CardContent(game));
+  return cardWraper;
+}
+
+function CardImage(src: string, alt: string): HTMLElement {
+  const cardImageWrapper = document.createElement('div');
+  cardImageWrapper.className = 'card__img';
+  const cardImg = document.createElement('img');
+  cardImg.src = src;
+  cardImg.alt = alt;
+
+  cardImageWrapper.appendChild(cardImg);
+  return cardImageWrapper;
+}
+
+function CardContent(game: Game): HTMLElement {
   const content = document.createElement('div');
   content.className = 'content';
 
+  content.append(
+    CardContentTop(game.title, game.category, game.price),
+    CardContentBody(game.description),
+    CardContentFooter(game),
+  );
+  return content;
+}
+
+function CardContentTop(title: string, tag: string, price: string): HTMLElement {
   const contentHeader = document.createElement('div');
   contentHeader.className = 'content__header';
-
-  const contentDescription = document.createElement('p');
-
-  contentDescription.className = 'content__description';
-  contentDescription.textContent = description;
-
-  const contentFooter = document.createElement('div');
-  contentFooter.className = 'content__footer';
 
   const contentHeaderTitle = document.createElement('h2');
   contentHeaderTitle.textContent = title;
@@ -179,44 +265,35 @@ function CardContent(
     : 'price';
   contentHeaderPrice.textContent = price;
 
-  contentHeader.appendChild(contentHeaderTitle);
-  contentHeader.appendChild(contentHeaderTag);
-  contentHeader.appendChild(contentHeaderPrice);
+  contentHeader.append(contentHeaderTitle, contentHeaderTag, contentHeaderPrice);
+  return contentHeader;
+}
 
-  const ratingWrapper = document.createElement('div');
-  ratingWrapper.className = 'game-rating';
-  const likesgWrapper = document.createElement('div');
-  likesgWrapper.className = 'game-likes';
+function CardContentBody(description: string): HTMLElement {
+  const contentBody = document.createElement('div');
+  contentBody.className = 'content__body';
+  const contentDescription = document.createElement('p');
+  contentDescription.textContent = description;
 
-  const ratingImg = document.createElement('img');
-  ratingImg.src = ratingIcon;
-  ratingImg.alt = 'rating';
+  contentBody.appendChild(contentDescription);
+  return contentBody;
+}
 
-  const likesImg = document.createElement('img');
-  likesImg.src = likesIcon;
-  likesImg.alt = 'likes';
-
-  const rating = document.createElement('span');
-  rating.textContent = meta.rating;
-  const likes = document.createElement('span');
-  likes.textContent = meta.likes;
-
-  ratingWrapper.appendChild(ratingImg);
-  ratingWrapper.appendChild(rating);
-  likesgWrapper.appendChild(likesImg);
-  likesgWrapper.appendChild(likes);
+function CardContentFooter(game: Game): HTMLElement {
+  const contentFooter = document.createElement('div');
+  contentFooter.className = 'content__footer';
 
   const detailsBtn = document.createElement('button');
   detailsBtn.className = 'details-btn';
   detailsBtn.textContent = 'Details';
+  detailsBtn.addEventListener('click', () => {
+    createDialog<Game>({
+      data: game,
+      content: (close) => DialogContent(game, close),
+      onClose: () => {},
+    });
+  });
 
-  contentFooter.appendChild(ratingWrapper);
-  contentFooter.appendChild(likesgWrapper);
-  contentFooter.appendChild(detailsBtn);
-
-  content.appendChild(contentHeader);
-  content.appendChild(contentDescription);
-  content.appendChild(contentFooter);
-
-  return content;
+  contentFooter.append(Rating(game.meta.rating), Like(game.meta.likes), detailsBtn);
+  return contentFooter;
 }

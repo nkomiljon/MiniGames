@@ -1,0 +1,15 @@
+@use '../../styles/tokens.scss' as *;
+
+.like {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $size-05;
+
+  &__count {
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $body-small;
+    color: $on-primary;
+  }
+}

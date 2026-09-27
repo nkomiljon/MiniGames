@@ -2,7 +2,7 @@ import { NotFound } from '../pages/not-found/not-found';
 
 interface Route {
   path: string;
-  component: HTMLElement | DocumentFragment;
+  component: () => HTMLElement | DocumentFragment;
 }
 
 export function createBrowserRouter(routes: Route[]) {
@@ -14,7 +14,7 @@ export function createBrowserRouter(routes: Route[]) {
 
     outlet.innerHTML = '';
     if (matched) {
-      outlet.appendChild(matched.component);
+      outlet.appendChild(matched.component());
     } else {
       outlet.appendChild(NotFound());
     }
@@ -31,7 +31,7 @@ export function createBrowserRouter(routes: Route[]) {
 }
 
 function updateActiveMenuItem(currentPath: string) {
-  const links = document.querySelectorAll<HTMLAnchorElement>('.navbar__menu a');
+  const links = document.querySelectorAll<HTMLAnchorElement>('.menu a');
 
   links.forEach((link) => {
     const linkPath = link.getAttribute('href')?.slice(1);

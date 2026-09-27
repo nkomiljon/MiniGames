@@ -1,7 +1,7 @@
+import './games-library.scss';
 import { Games } from '../../components/games/games';
-import './game-library.scss';
 
-export function GameLibrary() {
+export function GamesLibraryPage() {
   const library = document.createElement('main');
   library.className = 'main';
   library.id = 'main';

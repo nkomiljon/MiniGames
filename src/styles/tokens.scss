@@ -78,9 +78,15 @@ $size-13: 104px;
 $size-14: 112px;
 $size-15: 120px;
 
+// Border radius
 $corner-extra-small: 4px;
 $corner-small: 8px;
 $corner-medium: 12px;
 $corner-large: 16px;
 $corner-extra-large: 24px;
 $corner-full: 9999px;
+
+// Shadows
+$level-1: 4px 4px $on-primary;
+$level-2: 6px 6px $on-primary;
+$level-3: 8px 8px $on-primary;

@@ -51,3 +51,18 @@
   font-size: $body-small;
   color: $on-primary;
 }
+
+@media (max-width: 768px) {
+  .filter {
+    flex-wrap: wrap;
+    gap: $size-3;
+
+    &__categories {
+      overflow: auto;
+    }
+  }
+
+  .chips {
+    font-size: $body-small;
+  }
+}

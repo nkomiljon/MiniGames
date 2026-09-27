@@ -8,19 +8,19 @@ interface Link {
 }
 const menu: Link[] = [
   {
-    path: '',
+    path: '/',
     label: 'Home',
   },
   {
-    path: 'games-library',
+    path: '/games-library',
     label: 'Library',
   },
   {
-    path: 'games-tournamemts',
+    path: '/games-tournamemts',
     label: 'Tournaments',
   },
   {
-    path: 'games-community',
+    path: '/games-community',
     label: 'Community',
   },
 ];
@@ -37,14 +37,17 @@ export function Header(): HTMLElement {
 
   const navElement = document.createElement('nav');
   navElement.className = 'navbar';
+  const navbarInner = document.createElement('div');
+  navbarInner.className = 'navbar__inner';
+
   const ulElement = document.createElement('ul');
-  ulElement.className = 'navbar__menu';
+  ulElement.className = 'menu';
 
   menu.map((m) => {
     const liElement = document.createElement('li');
     const aElement = document.createElement('a');
     aElement.text = m.label;
-    aElement.href = `#/${m.path}`;
+    aElement.href = '#' + `${m.path}`;
     liElement.appendChild(aElement);
     ulElement.appendChild(liElement);
   });
@@ -61,8 +64,9 @@ export function Header(): HTMLElement {
 
   authWrapperElement.appendChild(loginElement);
   authWrapperElement.appendChild(signInElement);
-  navElement.appendChild(ulElement);
-  navElement.appendChild(authWrapperElement);
+  // navElement.appendChild(ulElement);
+  navbarInner.append(ulElement, authWrapperElement);
+  navElement.appendChild(navbarInner);
 
   divElement.appendChild(Logo(logo, '/', 'dark'));
   divElement.appendChild(navElement);
