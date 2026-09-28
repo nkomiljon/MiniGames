@@ -22,10 +22,8 @@ export interface Recorder {
 }
 
 export interface Comment {
-  meta: {
-    author: string;
-    date: string;
-  };
+  author: string;
+  time: string;
   body: string;
-  likes: number;
+  like: number;
 }

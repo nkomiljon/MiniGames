@@ -51,12 +51,22 @@ const data: Game[] = [
     ],
     comments: [
       {
-        meta: {
-          author: 'ForestDweller',
-          date: '3 hours ago',
-        },
+        author: 'ForestDweller',
+        time: '3 hours ago',
         body: "The hand-drawn art is absolutely magical 🍄 Every location feels like a page from a children's storybook. The mushroom village made me cry happy tears!",
-        likes: 12,
+        like: 12,
+      },
+      {
+        author: 'HerbalTeaLover',
+        time: '1 day ago',
+        body: "The hand-drawn art is absolutely magical 🍄 Every location feels like a page from a children's storybook. The mushroom village made me cry happy tears!",
+        like: 5,
+      },
+      {
+        author: 'CottageCoreMia',
+        time: '3 days ago',
+        body: "The hand-drawn art is absolutely magical 🍄 Every location feels like a page from a children's storybook. The mushroom village made me cry happy tears!",
+        like: 3,
       },
     ],
   },

@@ -1,5 +1,7 @@
 import './dialog-content.scss';
 import { Comment, Game, Recorder } from '../../interfaces';
+import { GameComment } from '../comment/comment';
+import { CommentForm } from '../comment-form/comment-form';
 
 export function DialogContent(game: Game, close: () => void): HTMLElement {
   const gameDetail = document.createElement('div');
@@ -74,6 +76,7 @@ function ContentTop(game: Game) {
   contentTop.appendChild(contentWidgets);
   contentTop.appendChild(contentActions);
   contentTop.appendChild(TopRecorders(game.recorders));
+  contentTop.appendChild(CommentForm());
   contentTop.appendChild(Comments(game.comments));
   return contentTop;
 }
@@ -107,7 +110,7 @@ function TopRecorders(recorders: Recorder[]): HTMLElement {
   const recordersTopWrapper = document.createElement('div');
   recordersTopWrapper.className = 'records__wrapper';
 
-  const recordersTitle = document.createElement('h2');
+  const recordersTitle = document.createElement('h3');
   recordersTitle.textContent = '🏆 Top Records';
 
   recordersTop.append(recordersTitle, recordersTopWrapper);
@@ -137,7 +140,7 @@ function RecorderItem(recorder: Recorder): HTMLElement {
 
   const recorderHistory = document.createElement('span');
   recorderHistory.className = 'recorder__history';
-  recorderHistory.textContent = recorder.history + 'ago';
+  recorderHistory.textContent = recorder.history + ' ago';
 
   recorderItem.appendChild(recorderName);
   recorderLeft.append(recorderPoint, recorderHistory);
@@ -149,45 +152,15 @@ function Comments(comments: Comment[]): HTMLElement {
   const commentsArea = document.createElement('div');
   commentsArea.className = 'comments';
 
-  const commentsTitle = document.createElement('h2');
+  const commentsTitle = document.createElement('h3');
   commentsTitle.className = 'comments__title';
   commentsTitle.textContent = 'Comments ' + comments.length;
 
   const commentsWrapper = document.createElement('div');
   commentsWrapper.className = 'comments__wrapper';
   comments.forEach((comment) => {
-    commentsWrapper.appendChild(CommentItem(comment));
+    commentsWrapper.appendChild(GameComment(comment));
   });
   commentsArea.appendChild(commentsWrapper);
   return commentsArea;
-}
-
-function CommentItem(comment: Comment): HTMLElement {
-  const commentItem = document.createElement('div');
-  commentItem.className = 'comment';
-
-  const commentTop = document.createElement('div');
-  commentTop.className = 'comment__top';
-
-  const userInfo = document.createElement('div');
-  const userIcon = document.createElement('div');
-  userIcon.className = 'user-icon';
-  userIcon.textContent = comment.meta.author.slice(1);
-
-  const userName = document.createElement('h4');
-  userName.className = 'user-name';
-  userName.textContent = '';
-
-  const date = document.createElement('span');
-  date.className = 'comment__date';
-  date.textContent = comment.meta.date;
-
-  userInfo.append(userIcon, userName);
-  commentTop.append(userInfo, date);
-
-  const commentBody = document.createElement('div');
-  commentBody.className = 'comment__body';
-
-  commentItem.append(commentTop, commentBody);
-  return commentItem;
 }
