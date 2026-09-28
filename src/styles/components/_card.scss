@@ -1,0 +1,7 @@
+@use '../tokens.scss' as *;
+@use '../mixins.scss' as *;
+
+.skin {
+  border: 2.5px solid $on-primary;
+  @include shadow($shadow: $level-1);
+}

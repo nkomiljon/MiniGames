@@ -1,0 +1,39 @@
+@use '../../styles/tokens.scss' as *;
+
+.pagination {
+  padding: $size-4;
+  display: flex;
+  flex-direction: row;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: $size-3;
+    margin: 0 auto;
+  }
+
+  &__btn {
+    width: $size-5;
+    height: $size-5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $label-small;
+    border-radius: $corner-full;
+    background-color: $white;
+    border: 2px solid $on-primary;
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $body-small;
+    color: $on-primary;
+
+    &[aria-current] {
+      background-color: $bg-footer-low;
+      color: $white;
+    }
+  }
+}
+
+.inactive {
+  border: 2px solid $outline-variant;
+}

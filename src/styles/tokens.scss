@@ -14,6 +14,7 @@ $bg-footer: #1e1b3a;
 $bg-footer-low: #2a264f;
 $bg-footer-lowest: #3c376e;
 $on-bg-footer: #b9b5c9;
+$text-placeholder: #969696;
 $surface: #fff9e5;
 $surface-low: #fffcf5;
 $primary: #ffd028;
@@ -78,9 +79,15 @@ $size-13: 104px;
 $size-14: 112px;
 $size-15: 120px;
 
+// Border radius
 $corner-extra-small: 4px;
 $corner-small: 8px;
 $corner-medium: 12px;
 $corner-large: 16px;
 $corner-extra-large: 24px;
 $corner-full: 9999px;
+
+// Shadows
+$level-1: 4px 4px $on-primary;
+$level-2: 6px 6px $on-primary;
+$level-3: 8px 8px $on-primary;

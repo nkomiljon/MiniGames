@@ -1,0 +1,197 @@
+@use '../../styles/tokens.scss' as *;
+
+.game-detail {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    width: 100%;
+    height: 220px;
+    padding: $size-2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    max-height: calc(100dvh - 250px);
+    overflow-x: auto;
+    padding: $size-3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.close-btn {
+  width: $size-5;
+  height: $size-5;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: $corner-full;
+  background-color: $white;
+}
+
+.content {
+  &__top {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $size-3;
+
+    & h2 {
+      margin-bottom: $size-3;
+      font-family: $inter;
+      font-weight: $bold;
+      font-size: $display-medium;
+      color: $on-primary;
+    }
+
+    & p {
+      font-family: $inter;
+      font-weight: $regular;
+      font-size: $body-medium;
+      color: $on-bg;
+    }
+  }
+}
+
+.widgets,
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: $size-3;
+}
+
+.widgets {
+  &__item {
+    height: 100%;
+    width: 25%;
+  }
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  gap: $size-1;
+  padding: $size-1 $size-2;
+  background-color: $white;
+  border-radius: $size-1;
+  border: 1px solid $outline-variant;
+
+  &__header {
+    font-family: $inter;
+    font-weight: $regular;
+    font-size: $label-medium;
+    color: $on-bg;
+  }
+
+  &__body {
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $body-small;
+    color: $on-primary;
+  }
+}
+
+.actions {
+  &__item {
+    flex: 1;
+  }
+}
+
+.action-btn {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: $size-3 $size-4;
+  border-radius: $label-medium;
+  font-family: $inter;
+  font-size: $body-medium;
+  font-weight: $bold;
+  color: $on-primary;
+
+  &--play {
+    background-color: $primary;
+    border: 2px solid $on-primary;
+  }
+
+  &--favorite {
+    background-color: $white;
+    border: 1px solid $outline-variant;
+  }
+}
+
+.records {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: $size-2;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: $size-1;
+  }
+}
+
+.recorder {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $size-2;
+  background-color: $white;
+  border-radius: $size-1;
+
+  &__name,
+  &__point {
+    font-family: $inter;
+    font-weight: $bold;
+    font-size: $body-small;
+    color: $on-primary;
+  }
+
+  &__left {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $size-2;
+  }
+
+  &__history {
+    font-family: $inter;
+    font-weight: $regular;
+    font-size: $label-medium;
+    color: $on-bg;
+  }
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $size-2;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $size-2;
+  }
+}
